@@ -1072,140 +1072,232 @@
 
 /* --- Aggressive Mobile Fixes --- */
 @media (max-width: 768px) {
-  /* --- Force Header Items Together --- */
-  /* Target the specific div containing Resume button and Theme toggle */
-  header nav > div[style*="display: flex"] {
-    margin-left: auto !important; /* Force group right */
-    flex-shrink: 0 !important;
-    gap: 8px !important; /* Reduce space between button and icon */
-  }
-  .logo {
-    font-size: 2.8rem !important; /* Smaller logo */
-    margin-right: auto !important; /* Push logo left */
-    flex-shrink: 0 !important;
-  }
-  .resume-btn {
-    font-size: 0.8rem !important; /* Much smaller text */
-    padding: 8px 12px !important; /* Much smaller padding */
-    border-radius: 20px !important; /* Adjust border radius */
-    flex-shrink: 1 !important; /* Allow button to shrink more */
-    white-space: nowrap !important; /* Prevent text wrapping inside button */
-  }
-  .theme-toggle {
-    font-size: 1.2rem !important; /* Smaller icon */
-    margin-left: 0 !important; /* Remove default margin */
-    flex-shrink: 0 !important;
-  }
+         /* Responsive Design */
+        @media (max-width: 768px) {
+            /* --- Header & Navigation Fixes --- */
+            nav {
+                position: relative; /* Needed for hamburger positioning */
+            }
 
-  /* --- Ensure Skill Card Titles Fit --- */
-  .skill-card h3 {
-    font-size: 1.2rem !important; /* Reduce heading size */
-    word-break: break-word !important; /* Force word break */
-    hyphens: auto !important; /* Add hyphens */
-    align-items: flex-start !important; /* Align icon and text top */
-  }
-  .skill-card h3 i {
-    font-size: 1.4rem !important; /* Slightly smaller icon */
-    margin-right: 10px !important; /* Reduce icon margin */
-    flex-shrink: 0 !important; /* Icon doesn't shrink */
-    margin-top: 3px !important; /* Align icon top */
-  }
-  .skill-card {
-    padding: 20px !important; /* Reduce card padding */
-  }
+            /* Hide the desktop navigation links */
+            .nav-links {
+                display: none; /* Keep this to hide links */
+                flex-direction: column;
+                position: absolute;
+                top: 100%; /* Position below the nav bar */
+                left: 0;
+                width: 100%;
+                background: rgba(10, 14, 23, 0.95); /* Match header scrolled bg */
+                backdrop-filter: blur(10px);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+                padding: 15px 0;
+                margin: 0;
+                list-style: none;
+                z-index: 1001; /* Above other content */
+                align-items: center; /* Center links */
+            }
+            body.light-mode .nav-links {
+                 background: rgba(226, 232, 240, 0.95); /* Light mode bg */
+                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
 
-  /* --- Improve About Image Placement --- */
-  .about-content {
-    flex-direction: column-reverse !important; /* Image on top */
-    gap: 20px !important; /* Reduce gap */
-  }
-  .profile-img {
-    min-width: 100% !important; /* Full width */
-    text-align: center !important;
-    margin: 0 auto !important; /* Center image container */
-  }
-  .profile-img img {
-    max-width: 80% !important; /* Control image size */
-    width: auto !important;
-    height: auto !important;
-    border-radius: 10px !important; /* Slightly smaller border radius */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important; /* Adjust shadow */
-    border: 3px solid rgba(255, 255, 255, 0.1) !important; /* Thinner border */
-  }
-  body.light-mode .profile-img img {
-    border: 3px solid rgba(0, 0, 0, 0.1) !important; /* Light mode border */
-  }
-  /* Optional: Hide the animated border on mobile if it causes issues */
-  .profile-img::before {
-    display: none !important;
-  }
+            .nav-links li {
+                margin: 10px 0; /* Vertical spacing for links */
+                width: 100%;
+                text-align: center; /* Center link text */
+            }
 
-  /* --- General Adjustments --- */
-  .section-title h2 {
-    font-size: 1.8rem !important; /* Smaller section titles */
-  }
-  .hero h1, .animated-text h1 {
-    font-size: 1.8rem !important; /* Smaller hero title */
-    text-align: center !important; /* Center hero text */
-  }
-  .hero p {
-    font-size: 1rem !important; /* Smaller hero paragraph */
-    text-align: center !important; /* Center hero text */
-    max-width: 100% !important; /* Allow full width */
-  }
-  .hero-btns {
-    margin-top: 20px !important; /* Reduce top margin */
-  }
-  .btn-primary, .btn-secondary {
-    padding: 12px 25px !important; /* Smaller button padding */
-    font-size: 1rem !important; /* Button font size */
-    width: 80% !important; /* Wider buttons */
-    max-width: 220px !important; /* Limit max width */
-  }
-  section {
-    padding: 70px 0 !important; /* Reduce section padding */
-  }
-  .about-stats {
-    margin-top: 20px !important; /* Reduce stats top margin */
-  }
-  .stat-item {
-    min-width: 100% !important; /* Full width stats */
-    padding: 15px !important; /* Reduce stat padding */
-  }
-  .stat-number {
-    font-size: 2rem !important; /* Smaller stat number */
-  }
-  .skills, .testimonials, .contact {
-    padding: 30px 15px !important; /* Reduce section padding */
-    border-radius: 15px !important; /* Slightly smaller radius */
-  }
-  .skills-container, .projects, .contact-container {
-    gap: 20px !important; /* Reduce grid gaps */
-  }
-  .project-content {
-    padding: 15px !important; /* Reduce project card padding */
-  }
-  .project-content h3 {
-    font-size: 1.3rem !important; /* Smaller project title */
-  }
-  .tag {
-    padding: 3px 8px !important; /* Smaller tags */
-    font-size: 0.75rem !important; /* Smaller tag font */
-  }
-  footer {
-    padding: 40px 0 20px !important; /* Reduce footer padding */
-  }
-  .footer-logo {
-    font-size: 3rem !important; /* Smaller footer logo */
-  }
-  .footer-links {
-    gap: 15px !important; /* Reduce footer link gap */
-    flex-direction: column !important; /* Stack links */
-    align-items: center !important;
-  }
-  .copyright {
-    font-size: 0.8rem !important; /* Smaller copyright text */
-  }
+            .nav-links a {
+                display: block; /* Make links full width of container */
+                padding: 10px 0; /* Add padding to links */
+                font-size: 1.1rem; /* Slightly larger link text */
+                color: var(--text); /* Ensure link color matches text */
+            }
+            .nav-links a::after {
+                /* Adjust or remove the underline effect on mobile if needed */
+                /* left: 50%;
+                transform: translateX(-50%);
+                width: 50%; */
+                /* Or remove it entirely: */
+                display: none;
+            }
+            .nav-links a:hover::after {
+                /* width: 50%; */
+                /* Or keep it hidden if removed above */
+                width: 0;
+            }
+
+
+            /* Style for the hamburger icon container */
+            .hamburger {
+                display: none; /* Hidden by default, shown via JS */
+                flex-direction: column;
+                justify-content: space-around;
+                width: 30px;
+                height: 30px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+                z-index: 1002; /* Above nav links */
+                margin-left: 15px; /* Space from logo/toggle */
+            }
+
+            .hamburger span {
+                width: 100%;
+                height: 3px;
+                background: var(--text);
+                border-radius: 10px;
+                transition: all 0.3s ease-in-out;
+                transform-origin: left center; /* Transform from left */
+            }
+
+            /* Hamburger active state (X mark) */
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(0px, 0px);
+                width: 110%; /* Slightly longer for X */
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(-2px, 1px);
+                width: 110%; /* Slightly longer for X */
+            }
+
+            /* Show hamburger on mobile */
+            .hamburger {
+                display: flex;
+            }
+
+             /* --- Header Items Positioning --- */
+            /* Target the div containing Resume button and Theme toggle */
+            header nav > div[style*="display: flex"] {
+                margin-left: auto !important; /* Force group right */
+                flex-shrink: 0 !important;
+                gap: 8px !important; /* Reduce space between button and icon */
+                align-items: center !important;
+            }
+            .logo {
+                font-size: 2.8rem !important; /* Slightly smaller logo */
+                margin-right: auto !important; /* Push logo left */
+                flex-shrink: 0 !important;
+                /* Ensure minimum width to prevent extreme shrinking */
+                min-width: fit-content !important;
+            }
+            .resume-btn {
+                font-size: 0.8rem !important; /* Much smaller text */
+                padding: 8px 12px !important; /* Much smaller padding */
+                border-radius: 20px !important; /* Adjust border radius */
+                flex-shrink: 1 !important; /* Allow button to shrink more */
+                white-space: nowrap !important; /* Prevent text wrapping inside button */
+                /* Set a max width to prevent overflow issues */
+                max-width: 120px !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important; /* Add ... if text overflows */
+            }
+            .theme-toggle {
+                font-size: 1.2rem !important; /* Slightly smaller icon */
+                margin-left: 0 !important; /* Remove default margin */
+                flex-shrink: 0 !important;
+                padding: 5px !important; /* Add padding for easier tap target */
+            }
+
+
+            /* --- Other Existing Mobile Styles --- */
+            .hero h1, .animated-text h1 {
+                font-size: 2.2rem; /* Adjusted from 2.5rem */
+                text-align: center; /* Center hero text */
+            }
+            .hero p {
+                font-size: 1.1rem;
+                text-align: center; /* Center hero paragraph */
+                max-width: 100%; /* Ensure paragraph fits */
+            }
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px; /* Reduce gap between buttons */
+            }
+            .btn-primary, .btn-secondary {
+                 padding: 12px 30px; /* Adjust button padding */
+                 width: 80%; /* Make buttons wider */
+                 max-width: 250px; /* Set a maximum width */
+            }
+            .about-content {
+                flex-direction: column; /* Stack about content */
+                gap: 30px; /* Adjust gap */
+            }
+            .about-text, .profile-img {
+                min-width: 100%; /* Full width elements */
+            }
+             .profile-img {
+                /* Center the profile image container */
+                display: flex;
+                justify-content: center;
+            }
+            .profile-img img {
+                max-width: 250px; /* Reduce image size */
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+             .about-stats {
+                flex-direction: column; /* Stack stats */
+                align-items: center; /* Center stats */
+                gap: 20px; /* Reduce gap */
+            }
+            .stat-item {
+                min-width: 80%; /* Adjust stat item width */
+            }
+            section {
+                padding: 80px 0; /* Adjust section padding */
+            }
+            .skills, .contact, .testimonials {
+                padding: 40px 20px; /* Adjust section padding */
+            }
+            .skills-container, .projects, .contact-container {
+                grid-template-columns: 1fr; /* Single column */
+                gap: 25px; /* Reduce gap */
+            }
+            .skill-card, .project-card {
+                /* Optional padding adjustment */
+                /* padding: 20px; */
+            }
+            .footer-links {
+                flex-direction: column; /* Stack footer links */
+                align-items: center; /* Center links */
+                gap: 15px; /* Reduce gap */
+            }
+            .cursor {
+                height: 35px; /* Adjust cursor height */
+            }
+            .floating-elements {
+                display: none; /* Hide floating shapes on mobile */
+            }
+            /* Reduce logo size on mobile */
+            .logo {
+                font-size: 3rem; /* Smaller logo */
+            }
+            /* Adjust scroll indicator */
+            .scroll-indicator {
+                bottom: 20px; /* Move indicator up slightly */
+                font-size: 0.8rem; /* Smaller font */
+            }
+            /* Header Adjustments */
+            header {
+                padding: 15px 0; /* Reduce header padding */
+            }
+             /* Resume button adjustments */
+            .resume-btn {
+                padding: 10px 20px; /* Smaller resume button */
+                font-size: 0.9rem; /* Smaller font */
+            }
+        }
 }
 }
+
         }
