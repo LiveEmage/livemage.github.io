@@ -234,4 +234,37 @@
             setTimeout(() => {
                 initAnimations();
             }, 1000);
+        // --- Mobile Hamburger Menu ---
+        function initMobileMenu() {
+            const hamburger = document.createElement('button');
+            hamburger.classList.add('hamburger');
+            hamburger.innerHTML = '<span></span><span></span><span></span>';
+            hamburger.setAttribute('aria-label', 'Toggle navigation');
+
+            // Find the nav container and the links list
+            const nav = document.querySelector('header nav');
+            const navLinks = document.querySelector('.nav-links');
+
+            // Insert hamburger button after the logo (first child of nav)
+            nav.insertBefore(hamburger, nav.children[1]); // Insert after .logo
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+
+        // Modify the DOMContentLoaded listener to include initMobileMenu
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            handleHeaderScroll();
+            smoothScrolling();
+            initThemeToggle();
+            initTypingEffect();
+            initMobileMenu(); // Initialize the mobile menu
+            // Initialize GSAP animations after a short delay to ensure everything is loaded
+            setTimeout(() => {
+                initAnimations();
+            }, 1000);
+        });
         });
