@@ -1230,4 +1230,114 @@
     font-size: 0.9rem; /* Smaller font */
   }
 }
+                    /* --- Additional Mobile Fixes --- */
+
+@media (max-width: 768px) {
+  /* --- Header Fixes --- */
+  nav {
+    /* Allow items to wrap if needed, although flex-wrap is default */
+    flex-wrap: wrap;
+    /* Ensure the nav takes full width for alignment */
+    width: 100%;
+  }
+
+  .logo {
+    /* Keep logo on the left */
+    margin-right: auto; /* Pushes other items to the right */
+    font-size: 2.5rem; /* Slightly smaller logo on mobile */
+    /* Ensure it doesn't shrink */
+    flex-shrink: 0;
+  }
+
+  /* Target the div containing the Resume button and Theme toggle */
+  nav > div:last-child {
+    /* Keep items on the right */
+    margin-left: auto; /* Pulls this group to the right */
+    /* Ensure items stay together and don't stretch */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add space between button and toggle */
+    flex-shrink: 0; /* Prevent shrinking */
+  }
+
+  .resume-btn {
+    /* Make the button slightly smaller and adjust padding */
+    padding: 10px 15px;
+    font-size: 0.85rem; /* Smaller text */
+    /* Allow it to shrink a little if very narrow, but set a minimum */
+    min-width: 0;
+    flex-shrink: 1;
+    /* Optional: Reduce border-radius slightly if it looks too pill-like */
+    /* border-radius: 20px; */
+  }
+
+  .theme-toggle {
+    /* Slightly smaller icon if needed */
+    font-size: 1.2rem;
+    margin-left: 0; /* Margin handled by gap now */
+    flex-shrink: 0; /* Icon shouldn't shrink */
+  }
+
+  /* --- Skills Section Fixes --- */
+  .skill-card h3 {
+    /* Prevent long headings from overflowing or getting cut */
+    word-break: break-word; /* Break long words if necessary */
+    hyphens: auto; /* Add hyphens for better word breaking */
+    /* Ensure the heading takes available space */
+    width: 100%;
+  }
+
+  .skill-card h3 i {
+     /* Ensure icon doesn't shrink */
+     flex-shrink: 0;
+  }
+
+  .skill-card p {
+    /* Prevent paragraph text from overflowing */
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  /* --- About Section Fixes --- */
+  .about-content {
+    /* Add specific gap control */
+    gap: 25px;
+  }
+
+  .profile-img {
+    /* Reduce min-width to fit better on small screens */
+    min-width: 250px; /* Adjust if needed */
+    /* Ensure the image container doesn't force excessive width */
+    width: 100%;
+    max-width: 300px; /* Limit maximum width */
+    margin: 0 auto; /* Center the image container */
+  }
+
+  .profile-img img {
+    /* Ensure the image itself scales correctly within its container */
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    /* Reduce max-width slightly if the container change isn't enough */
+    /* max-width: 90%; */
+  }
+
+  /* Optional: Adjust padding inside skill cards slightly if text is still tight */
+  /*
+  .skill-card {
+    padding: 25px 20px;
+  }
+  */
+
+  /* Optional: Adjust section padding slightly more if needed */
+  /*
+  section {
+    padding: 80px 0;
+  }
+  .section-title {
+    margin-bottom: 50px;
+  }
+  */
+}
+
         }
